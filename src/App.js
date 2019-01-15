@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from "./components/Navbar"
+import Books from "./components/Books"
 
 class App extends Component {
+state = {books:[]}
+
+componentDidMount = async () => {
+ const response = await fetch("http://localhost:8082/api/books")
+ const json = await response.json()
+ console.log(json)
+ this.setState({books:json},()=>{console.log(this.state);})
+}
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Navbar/>
+      <Books books={this.state.books}/>
       </div>
     );
   }
