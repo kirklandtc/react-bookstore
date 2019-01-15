@@ -7,11 +7,11 @@ import Books from "./components/Books"
 class App extends Component {
 state = {books:[]}
 
-componentDidMount = async () => {
+async componentDidMount(){
  const response = await fetch("http://localhost:8082/api/books")
  const json = await response.json()
  console.log(json)
- this.setState({books:json},()=>{console.log(this.state);})
+ this.setState({books:json},()=>{console.log(this.state)})
 }
   render() {
     return (
