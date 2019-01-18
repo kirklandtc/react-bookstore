@@ -7,7 +7,7 @@ class Books extends Component {
     return (
       <div className="Books">
       <div className="container">
-        <h1>Cart Items</h1>
+        <h1>Book List by Title and Author</h1>
         <div className="list-group">
 
 
