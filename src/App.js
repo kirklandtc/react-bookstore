@@ -17,18 +17,13 @@ async componentDidMount(){
 }
 
 
-
-
   render() {
-
-
 
 
 
     return(
       <div className="App">
       <Navbar/>
-
 
         <div class="input-group flex-nowrap">
           <div class="input-group-prepend">
@@ -38,9 +33,14 @@ async componentDidMount(){
             placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"/>
         </div>
 
+      <div class="container-fluid">
 
       <Books books={this.state.books}/>
       <Cart cartItems = {this.state.books}/>
+
+
+      </div>
+
       </div>
     );
   }
