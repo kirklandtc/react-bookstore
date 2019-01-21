@@ -7,7 +7,8 @@ import Cart from "./components/Cart"
 
 
 class App extends Component {
-state = {books:[],cartItems:[]}
+state = {books:[],cartItems:[],inCart:[]}
+
 
 async componentDidMount(){
  const response = await fetch("http://localhost:8082/api/books")
@@ -35,11 +36,14 @@ async componentDidMount(){
 
       <div class="container-fluid">
 
+
       <Books books={this.state.books}/>
       <Cart cartItems = {this.state.books}/>
+      <cartItems cartItems = {this.state.books.inCart}/>
 
 
       </div>
+
 
       </div>
     );

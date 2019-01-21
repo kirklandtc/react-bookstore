@@ -14,12 +14,14 @@ const inCart = (list) => {
 
 class Cart extends Component {
   render() {
-    return (
+
+  return (
+
+
       <div className="Cart">
        <div className="container">
         <h1>Cart Items</h1>
           <div className="list-group">
-
 
 
 
