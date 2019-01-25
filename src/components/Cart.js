@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Book from "./Book.js"
+import Item from "./Item.js"
 
 
 const inCart = (list) => {
@@ -15,34 +15,28 @@ const inCart = (list) => {
 class Cart extends Component {
   render() {
 
-  return (
-
-
-      <div className="Cart">
-       <div className="container">
+    return (
+      <div>
         <h1>Cart Items</h1>
-          <div className="list-group">
-
-
-
-
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
             {this.props.cartItems.filter(book=> book.inCart === true).map(book => (
-                  <div className="list-group-item">
-                  <div className="row">
-                  <div className="col-md-8">
-
-                      <Book
-                      key={book.id}
-                    book = {book}
-                  />
-                </div>
-              </div>
-            </div>
+              <Item
+                key={book.id}
+                book = {book}
+              />
             ))}
-         </div>
-       </div>
-      </div>
-    )
+          </tbody>
+        </table>
+    </div>
+      )
   }
 }
 export default Cart;

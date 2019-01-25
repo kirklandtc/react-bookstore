@@ -7,7 +7,7 @@ import Cart from "./components/Cart"
 
 
 class App extends Component {
-state = {books:[],cartItems:[],inCart:[]}
+state = {books:[],cartItems:[]}
 
 
 async componentDidMount(){
@@ -15,6 +15,27 @@ async componentDidMount(){
  const json = await response.json()
  console.log(json)
  this.setState({books:json},()=>{console.log(this.state)})
+
+}
+
+addToCart(book){
+
+
+  const idx = this.state.cartItems.findIndex(elem => elem.id === book.id)
+  if(idx > -1){
+    let newCart=Array.from(this.state.cartItems)
+    newCart[idx].quantity++//incrementing to nan
+    newCart[idx].inCart = true
+    this.setState({
+      ...this.state,
+      cartItems:[...this.state.cartItems.slice(0,idx),newCart[idx],...this.state.cartItems.slice(idx+1)]
+    })
+  }  else {
+    book.quantity = 1
+    book.inCart = true
+    let newState = {...this.state,cartItems:[...this.state.cartItems,book]}
+    this.setState(newState,()=>{console.log(this.state)})
+  }
 }
 
 
@@ -34,13 +55,16 @@ async componentDidMount(){
             placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"/>
         </div>
 
-      <div class="container-fluid">
+
+      <div class="container">
 
 
-      <Books books={this.state.books}/>
-      <Cart cartItems = {this.state.books}/>
+      <Books addToCart={this.addToCart.bind(this)} books={this.state.books} />
+
+      <Cart cartItems = {this.state.cartItems}/>
+
       <cartItems cartItems = {this.state.books.inCart}/>
-
+      <addToCart cartItems ={this.state.books.inCart}/>
 
       </div>
 
