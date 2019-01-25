@@ -10,7 +10,7 @@ class Books extends Component {
       <div className="row">
        <div className="Books">
         <div className="container-fluid">
-         <h1>Book List by Title and Author</h1>
+         <h1>Book List</h1>
           <div className="list-group">
 
 

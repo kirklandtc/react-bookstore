@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from "./components/Navbar"
 import Books from "./components/Books"
 import Cart from "./components/Cart"
-
+import Sort from "./components/Sort"
 
 class App extends Component {
-state = {books:[],cartItems:[]}
+state = {books:[],cartItems:[],sortBy:"id"}
 
 
 async componentDidMount(){
@@ -39,6 +39,25 @@ addToCart(book){
 }
 
 
+sortBy(value){
+  let copy = this.state.books.slice(0)
+  if(value === "author"){ copy.sort((a,b) => {
+    return a.author.toLowerCase() > b.author.toLowerCase()
+     ? 1 : a.author.toLowerCase() < b.author.toLowerCase() ? -1 : 0
+  })}
+  if(value === "title"){ copy.sort((a,b) => {
+   return a.title.toLowerCase() > b.title.toLowerCase()
+   ? 1 : a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 0
+  })}
+  if(value === "id"){
+    copy.sort((a,b)=>a.id-b.id)
+  }
+  let newState = {...this.state,books:copy}
+  this.setState(newState)
+}
+
+// Adding JS content above to filter books by author and title
+
   render() {
 
 
@@ -58,6 +77,7 @@ addToCart(book){
 
       <div class="container">
 
+      <Sort sortBy={this.sortBy.bind(this)}/>
 
       <Books addToCart={this.addToCart.bind(this)} books={this.state.books} />
 

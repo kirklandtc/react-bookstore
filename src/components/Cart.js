@@ -18,7 +18,7 @@ class Cart extends Component {
     return (
       <div>
         <h1>Cart Items</h1>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Title</th>
