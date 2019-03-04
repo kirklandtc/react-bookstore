@@ -10,7 +10,8 @@ class Sort extends Component {
     <div className = "form-group">
       <form onSubmit>
         <label>Book:</label>
-          <select id = "productIddd" className = "form-control" name="productID" onChange={(e)=>{this.props.sortBy(e.target.value)}}>
+          <select id = "productIddd" className = "form-control"
+            name="productID" onChange={(e)=>{this.props.sortBy(e.target.value)}}>
             <option value="id">Sort By Id</option>
               <option value="title">Sort By Book Title</option>
               <option value="author">Sort By Author</option>

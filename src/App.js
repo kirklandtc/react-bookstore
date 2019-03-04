@@ -66,13 +66,6 @@ sortBy(value){
       <div className="App">
       <Navbar/>
 
-        <div class="input-group flex-nowrap">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="addon-wrapping">@</span>
-          </div>
-          <input type="text" class="form-control"
-            placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"/>
-        </div>
 
 
       <div class="container">

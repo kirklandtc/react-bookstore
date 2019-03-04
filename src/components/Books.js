@@ -18,6 +18,7 @@ class Books extends Component {
 
                   <div className="list-group-item">
                    <div className="row">
+
                     <div className="row">
                      <div className="col-lg-12">
                       <Book
@@ -25,6 +26,7 @@ class Books extends Component {
                       addToCart={this.props.addToCart}
                       book={book}/>
                     </div>
+                
                    </div>
                  </div>
 
